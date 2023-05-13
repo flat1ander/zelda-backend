@@ -12,3 +12,5 @@
 - A schema file that outlines the schema for the data we our pulling from our external API.
 ## Technologies Used:
 - HTML, Javascript, Mongoose, mongoDB
+## Link to external API being used:
+https://gadhagod.github.io/Hyrule-Compendium-API/#/
