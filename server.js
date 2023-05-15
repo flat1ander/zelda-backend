@@ -11,15 +11,16 @@ const app = express();
 
 // Set up middleware:
 app.use(cors());
+app.use(morgan("tiny")) 
 
 // Home route for testing our app:
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hit Default Route!')
 })
 
-// Index route:
-app.get('/index', (req, res) => {
-    res.send('Hit the index route')
-})
+const monstersController = require('./controllers/monsters')
+app.use('/monsters', monstersController) 
 
+
+// Listener
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
