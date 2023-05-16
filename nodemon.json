@@ -1,0 +1,7 @@
+{
+    "env": {
+        "DB_USER": "thematthewlane",
+        "DB_PASSWORD": "flatkouppa7",
+        "JWT_KEY_SECRET": "vega_sigmus_server_secret"
+    }
+}
