@@ -3,11 +3,13 @@ const { mongoose } = require('mongoose')
 const monstersSchema = new mongoose.Schema({
     name: String,
     image: String,
-    common_locations: String,
+    common_locations: {
+        type: [String],
+        default: [],
+      },
     description: String,
     difficulty: String,
     tips: String,
-    date: String,
     defeated: Boolean,
 })
 
