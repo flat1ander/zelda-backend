@@ -3,7 +3,7 @@ const { mongoose } = require('mongoose')
 const monstersSchema = new mongoose.Schema({
     name: String,
     image: String,
-    commonLocation: String,
+    common_locations: String,
     description: String,
     difficulty: String,
     tips: String,
