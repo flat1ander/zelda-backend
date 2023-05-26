@@ -1,37 +1,31 @@
 const express = require('express');
 const { Monster } = require('../models/monster');
 const router = express.Router();
-const monsters = require('../models/monsterData.json');
+const monsterData = require('../models/monsterData.json');
+const mongoose = require('mongoose');
 
-
-// Index route at /monsters
 router.get('/', async (req, res) => {
     res.json(await Monster.find({})).status(200);
 })
 
-// Seed Route:
 router.get('/seed', async (req, res) => {
     await Monster.deleteMany({});
-    await Monster.create(monsters);
+    await Monster.create(monsterData);
     res.redirect('/monsters')
 })
 
-// Show Route:
 router.get('/:id', async (req, res) => {
-    res.json(await monsters.findById(req.params.id))
+    res.json(await Monster.findById(req.params.id))
 })
 
-// Post Route:
-router.post ('/', async (req, res) => {
-    res.json(await monsters.create(req.body))
+router.post('/', async (req, res) => {
+    res.json(await Monster.create(req.body))
 })
 
-// Put Route:
 router.put('/:id', async (req, res) => {
     res.json(await Monster.findByIdAndUpdate(req.params.id, req.body, {new: true}))
 })
 
-// Delete Route:
 router.delete('/:id', async (req, res) => {
     res.json(await Monster.findByIdAndRemove(req.params.id))
 })
